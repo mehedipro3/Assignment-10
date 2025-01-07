@@ -1,18 +1,20 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-//import loginUser from "../assets/user.png";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 const Navbar = () => {
-  //const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
 
 
   const links = (
     <>
       <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/contactUs">All visa</NavLink></li>
-      <li><NavLink to="/myProfile">Add Visa</NavLink></li>
-      <li><NavLink to="/myProfile">My added visa</NavLink></li>
-      <li><NavLink to="/myProfile">Visa applications</NavLink></li>
+      <li><NavLink to="/allVisa">All visa</NavLink></li>
+      <li><NavLink to="/addVisa">Add Visa</NavLink></li>
+      <li><NavLink to="/myAddedVisa">My added visa</NavLink></li>
+      <li><NavLink to="/visaApplication">Visa applications</NavLink></li>
     </>
   );
 
@@ -40,7 +42,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-xl">Visa</Link>
+        <Link to="/" className="btn btn-ghost text-xl">E-Visa</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -48,17 +50,23 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end gap-2">
-        {/* <div>
-          <img className="w-10 rounded-full" src={user?.photoURL || loginUser} alt="User Avatar" />
-        </div> */}
 
-        {/* {user?.email ? (
+        {user?.photoURL ? <div>
+          <img className="w-10 rounded-full" src={user?.photoURL} alt="User Avatar" />
+        </div> : ""}
+
+
+        {user?.email ? (
           <button onClick={logOut} className="btn btn-neutral">LogOut</button>
         ) : (
-          <Link to="/auth/login" className="btn btn-neutral">Login</Link>
-        )} */}
+          <>
+            <Link to="/auth/login" className="btn btn-neutral">Login</Link>
+            <Link to="/auth/register" className="btn btn-neutral">Register</Link>
+          </>
+        )}
 
-        <Link to="/auth/login" className="btn btn-neutral">Login</Link>
+
+
       </div>
     </div>
   );
