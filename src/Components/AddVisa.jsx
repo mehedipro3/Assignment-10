@@ -1,6 +1,7 @@
+import Swal from 'sweetalert2';
 import Footer from './Footer';
 import Navbar from './Navbar';
-//import Swal from 'sweetalert2';
+
 
 const AddVisa = () => {
   const handleSubmit = (e) => {
@@ -34,6 +35,26 @@ const AddVisa = () => {
     };
 
     console.log(formData);
+
+    fetch('http://localhost:5000/datas', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+          Swal.fire({
+            title: "successful",
+            text: "Data Added Successfully",
+            icon: "success",
+            draggable: true
+          });
+          form.reset();
+      })
+
 
   
   };
