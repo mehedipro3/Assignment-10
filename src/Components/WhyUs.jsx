@@ -1,9 +1,13 @@
+import { Fade } from "react-awesome-reveal";
+
 const WhyUs = () => {
   return (
     <div className="bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center">
         <h2 className="text-3xl font-extrabold text-gray-800 sm:text-4xl">
+          <Fade animate__fadeOutLeftBig>
           Why Choose Our Visa Navigator?
+          </Fade>
         </h2>
         <p className="mt-4 text-lg text-gray-600">
           Discover a seamless visa application experience tailored to your needs.

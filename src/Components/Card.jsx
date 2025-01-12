@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // eslint-disable-next-line react/prop-types
 const Card = ({card}) => {
   // eslint-disable-next-line react/prop-types
-  const {_id,country_image, visaType, processingTime, fee, validity, application_method} = card ; 
+  const {_id,country_image, visaType, processing_time, fee, validity, application_method} = card ; 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white border border-gray-200">
       <img
@@ -14,7 +14,7 @@ const Card = ({card}) => {
       <div className="px-6 py-4">
         <h3 className="font-bold text-lg mb-2 text-gray-800">{visaType}</h3>
         <p className="text-sm text-gray-600">
-          <span className="font-semibold">Processing Time:</span> {processingTime}
+          <span className="font-semibold">Processing Time:</span> {processing_time}
         </p>
         <p className="text-sm text-gray-600">
           <span className="font-semibold">Fee:</span> ${fee}
